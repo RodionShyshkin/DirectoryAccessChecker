@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message DirResponse {
+  bool status = 1;
+}

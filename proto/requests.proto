@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+import "directory.proto";
+
+message DirRequest {
+  Directory dir = 1;
+}

@@ -1,0 +1,5 @@
+syntax = "proto3";
+
+message Directory {
+  string path = 1;
+}

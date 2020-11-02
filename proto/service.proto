@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "requests.proto";
+import "responses.proto";
+
+service DirectoryHolder {
+  rpc SaveDirectory(DirRequest) returns (DirResponse) {  }
+  rpc RemoveDirectory(DirRequest) returns (DirResponse) {  }
+}
