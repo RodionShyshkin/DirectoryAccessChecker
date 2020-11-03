@@ -3,7 +3,7 @@
 
 This program gets a directory path from user, checks it and blocks for other instances of itself.
 
-# How to build DirectoryAccessChecker
+## How to build DirectoryAccessChecker
 
 Follow this instruction to clone the source code and build it:
 
@@ -18,7 +18,7 @@ make
 
 Program was successfully built. Well done! :)
 
-# How to start using DirectoryAccessChecker
+## How to start using DirectoryAccessChecker
 
 DirectoryAccessChecker uses a Server executable, so firstly you need to start it:
 
