@@ -21,7 +21,7 @@ class AccessBlocker {
  private:
   std::filesystem::path   path_;
   bool                    result_;
-  DirectoryHolderClient         client_;
+  DirectoryHolderClient   client_;
 };
 
 #endif //DIRECTORYACCESSCHECKER_SRC_ACCESSBLOCKER_H_

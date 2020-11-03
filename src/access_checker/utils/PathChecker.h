@@ -16,8 +16,16 @@ namespace path_checker {
     return ((perms & std::filesystem::perms::owner_write) != std::filesystem::perms::none);
   }
 
+  static void CheckDirectoryExistence(const std::filesystem::path& path) {
+    if(std::filesystem::exists(path)) return;
+    else {
+      std::filesystem::create_directories(path);
+    }
+  }
+
   static std::optional<ResultType> Check(const std::filesystem::path& path) {
     if(!path.is_absolute()) return ResultType::PATH_IS_NOT_ABSOLUTE;
+    CheckDirectoryExistence(path);
     if(!std::filesystem::is_directory(path)) return ResultType::NOT_DIRECTORY;
     if(!CheckPermissions(path)) return ResultType::PERMISSION_DENIED;
 

@@ -104,8 +104,18 @@ target_link_libraries(DirectoryAccessChecker
         ${Boost_LIBRARIES} ${_REFLECTION}
         ${_GRPC_GRPCPP} ${_PROTOBUF_LIBPROTOBUF})
 
-#add_executable(UnitTests ${srcs} ${hdrs} ${tests})
+add_executable(UnitTests ${tests}
+                        ${srcs} ${hdrs}
+                        ${PROTO_SRCS} ${PROTO_HDRS}
+                        ${service_proto_srcs} ${service_proto_hdrs}
+                        ${service_grpc_srcs} ${service_grps_hdrs})
 
-#target_link_libraries(UnitTests GTest::GTest GTest::Main /usr/local/lib/libgmock.a /usr/local/lib/libgmock_main.a)
+set(GMOCK_L "/usr/local/lib/gmock/")
+target_link_libraries(UnitTests GTest::GTest GTest::Main /usr/local/lib/libgmock.a /usr/local/lib/libgmock_main.a)
+target_link_libraries(UnitTests ${Boost_LIBRARIES}
+        ${Protobuf_LIBRARIES}
+        ${_REFLECTION}
+        ${_GRPC_GRPCPP}
+        ${_PROTOBUF_LIBPROTOBUF})
 
-#gtest_discover_tests(UnitTests)
+gtest_discover_tests(UnitTests)
