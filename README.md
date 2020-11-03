@@ -33,3 +33,8 @@ After that you can start using a program, all you need is to start its executabl
 ```
 
 That's it! Now you can use DirectoryAccessChecker.
+
+## Available platforms
+
+You can use DirectoryAccessChecker with any of MacOS/Linux/Windows platform due to 
+the absence of system calls in the source code. Sounds good, right? :)
