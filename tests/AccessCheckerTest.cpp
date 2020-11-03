@@ -5,14 +5,8 @@
 #include <access_checker/AccessChecker.h>
 #include <access_checker/IO/IOInterface.h>
 #include <gtest/gtest.h>
-#include <gmock/gmock.h>
+#include <mocks/MockIO.h>
 #include <fstream>
-
-class MockIO : public IOInterface {
- public:
-  MOCK_METHOD(std::string, Input, (), (override));
-  MOCK_METHOD(void, Output, (const std::string&), (override));
-};
 
  class AccessCheckerTest : public ::testing::Test {
 

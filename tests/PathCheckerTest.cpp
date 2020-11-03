@@ -3,15 +3,7 @@
 //
 
 #include <access_checker/utils/PathChecker.h>
-#include <access_checker/IO/IOInterface.h>
 #include <gtest/gtest.h>
-#include <gmock/gmock.h>
-
-class MockIO : public IOInterface {
- public:
-  MOCK_METHOD(std::string, Input, (), (override));
-  MOCK_METHOD(void, Output, (const std::string&), (override));
-};
 
 class PathCheckerTest : public ::testing::Test {
 

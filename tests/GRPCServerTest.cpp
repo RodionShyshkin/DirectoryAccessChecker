@@ -3,15 +3,8 @@
 //
 
 #include <directory_storage/GRPCServer.h>
-#include <directory_storage/StorageInterface.h>
 #include <gtest/gtest.h>
-#include <gmock/gmock.h>
-
-class MockStorage : public StorageInterface {
- public:
-  MOCK_METHOD(bool, AddDir, (const std::filesystem::path&), (override));
-  MOCK_METHOD(bool, RemoveDir, (const std::filesystem::path&), (override));
-};
+#include <mocks/MockStorage.h>
 
  class GRPCServerTest : public ::testing::Test {
 
