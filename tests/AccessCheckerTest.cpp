@@ -15,16 +15,6 @@ class MockIO : public IOInterface {
 };
 
  class AccessCheckerTest : public ::testing::Test {
- public:
-  void SetUp() override {
-
-  }
-
-  void TearDown() override {
-
-  }
-
- protected:
 
 };
 

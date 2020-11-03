@@ -14,16 +14,6 @@ class MockStorage : public StorageInterface {
 };
 
  class GRPCServerTest : public ::testing::Test {
- public:
-  void SetUp() override {
-
-  }
-
-  void TearDown() override {
-
-  }
-
- protected:
 
 };
 
