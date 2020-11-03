@@ -7,6 +7,13 @@
 
 #include <filesystem>
 
+/*
+ * \brief Interface of storage,
+ * which contains all busy directories.
+ *
+ * @author Rodion Shyshkin
+ */
+
 class StorageInterface {
  public:
   virtual ~StorageInterface() = default;

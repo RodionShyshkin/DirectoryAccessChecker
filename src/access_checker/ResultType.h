@@ -5,6 +5,12 @@
 #ifndef DIRECTORYACCESSCHECKER_SRC_RESULTTYPE_H_
 #define DIRECTORYACCESSCHECKER_SRC_RESULTTYPE_H_
 
+/*
+ * \brief Enum of possible result codes of checking directory.
+ *
+ * @author Rodion Shyshkin
+ */
+
 enum ResultType {
   SUCCESS = 0,
   PATH_IS_NOT_ABSOLUTE,

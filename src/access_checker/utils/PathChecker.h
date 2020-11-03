@@ -9,13 +9,31 @@
 #include <optional>
 #include "access_checker/ResultType.h"
 
+/*
+ * Toolkit for validating a directory path.
+ *
+ * @author Rodion Shyshkin
+ */
+
 namespace path_checker {
+/*
+ * Checks if directory has a permission to write for owner.
+ *
+ * @param const-ref std::filesystem::path
+ *
+ * @return bool True if it has a permission to write, False in another case.
+ */
   static bool CheckPermissions(const std::filesystem::path& path) {
     std::filesystem::directory_entry dir{path};
     auto perms = dir.status().permissions();
     return ((perms & std::filesystem::perms::owner_write) != std::filesystem::perms::none);
   }
 
+  /*
+   * Checks if directory exists and create it if it is not.
+   *
+   * @param const-ref std::filesystem::path
+   */
   static void CheckDirectoryExistence(const std::filesystem::path& path) {
     if(std::filesystem::exists(path) || path.has_filename()) return;
     else {
@@ -23,6 +41,16 @@ namespace path_checker {
     }
   }
 
+  /*
+   * Makes all verification for a directory path, which includes checking
+   * if path is absolute, if it is a path to a directory, if directory
+   * exists and creating it in another case, and if it has permissions
+   * to write.
+   *
+   * @param const-ref std::filesystem::path.
+   *
+   * @return optional ResultType, std::nullopt if there are no errors.
+   */
   static std::optional<ResultType> Check(const std::filesystem::path& path) {
     if(!path.is_absolute()) return ResultType::PATH_IS_NOT_ABSOLUTE;
     try {

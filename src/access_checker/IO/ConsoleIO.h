@@ -7,9 +7,26 @@
 
 #include <access_checker/IO/IOInterface.h>
 
+/*
+ * \brief Console implementation of IO.
+ *
+ * @author Rodion Shyshkin
+ */
+
 class ConsoleIO : public IOInterface {
  public:
+  /*
+   * Gets string from user.
+   *
+   * @return std::string
+   */
   std::string Input() override;
+
+  /*
+   * Shows string to user with line break.
+   *
+   * @param const-ref std::string
+   */
   void Output(const std::string &) override;
 };
 

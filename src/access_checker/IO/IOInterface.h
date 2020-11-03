@@ -7,6 +7,12 @@
 
 #include <string>
 
+/*
+ * \brief Input-Output interface.
+ *
+ * @author Rodion Shyshkin
+ */
+
 class IOInterface {
  public:
   virtual ~IOInterface() {}

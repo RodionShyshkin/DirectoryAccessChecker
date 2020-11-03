@@ -8,6 +8,15 @@
 #include <service.grpc.pb.h>
 #include "DirectoryStorage.h"
 
+/*
+ * \brief Implementation of the service which
+ * fills and free the storage of directories.
+ *
+ * @see StorageInterface
+ *
+ * @author Rodion Shyshkin
+ */
+
  class GRPCServer final : public ::DirectoryHolder::Service {
  public:
   GRPCServer(std::unique_ptr<StorageInterface> storage);

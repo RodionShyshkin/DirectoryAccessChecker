@@ -9,7 +9,22 @@
 #include <grpcpp/grpcpp.h>
 #include <filesystem>
 
+/*
+ * \brief Toolkit for working with serialized gRPC entities.
+ *
+ * @see DirRequest.proto
+ *
+ * @author Rodion Shyshkin
+ */
+
 namespace grpc_converter {
+/*
+ * Converts filepath to a proto request for gRPC.
+ *
+ * @param const-ref std::filesystem::path
+ *
+ * @return DirRequest ptr
+ */
   static DirRequest* PathToRequest(const std::filesystem::path& path) {
     auto string_path = path.string();
     auto dir = Directory::default_instance().New();
