@@ -12,17 +12,6 @@
 
 };
 
-TEST_F(AccessCheckerTest, shouldWorkWithUnexistingPath) {
-  std::string path = "/Users/rodion/sasdfl/";
-  std::unique_ptr<MockIO> io = std::make_unique<MockIO>();
-
-  EXPECT_CALL(*io, Input).Times(2).WillOnce(::testing::Return(path))
-                                      .WillOnce(::testing::Return(""));
-  EXPECT_CALL(*io, Output).Times(3);
-
-  auto result = access_checker::Check(std::move(io));
-  ASSERT_EQ(result, ResultType::SUCCESS);
-}
 
 TEST_F(AccessCheckerTest, shouldNotWorkWithNotAbsolutePath) {
   std::unique_ptr<MockIO> io = std::make_unique<MockIO>();
@@ -62,4 +51,5 @@ TEST_F(AccessCheckerTest, shouldNotWorkWithoutPermission) {
 
   auto result = access_checker::Check(std::move(io));
   ASSERT_EQ(result, ResultType::PERMISSION_DENIED);
+  std::filesystem::remove(path);
 }
