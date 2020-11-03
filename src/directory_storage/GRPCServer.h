@@ -10,14 +10,14 @@
 
  class GRPCServer final : public ::DirectoryHolder::Service {
  public:
-  GRPCServer(std::unique_ptr<DirectoryStorage> storage);
+  GRPCServer(std::unique_ptr<StorageInterface> storage);
 
  public:
   ::grpc::Status SaveDirectory(::grpc::ServerContext *context, const ::DirRequest *request, ::DirResponse *response) override;
   ::grpc::Status RemoveDirectory(::grpc::ServerContext *context, const ::DirRequest *request, ::DirResponse *response) override;
 
  private:
-  std::unique_ptr<DirectoryStorage> storage_;
+  std::unique_ptr<StorageInterface> storage_;
 };
 
 #endif //DIRECTORYACCESSCHECKER_SRC_GRPCSERVER_H_

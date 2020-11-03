@@ -17,7 +17,7 @@ namespace path_checker {
   }
 
   static void CheckDirectoryExistence(const std::filesystem::path& path) {
-    if(std::filesystem::exists(path)) return;
+    if(std::filesystem::exists(path) || path.has_filename()) return;
     else {
       std::filesystem::create_directories(path);
     }
@@ -25,7 +25,12 @@ namespace path_checker {
 
   static std::optional<ResultType> Check(const std::filesystem::path& path) {
     if(!path.is_absolute()) return ResultType::PATH_IS_NOT_ABSOLUTE;
-    CheckDirectoryExistence(path);
+    try {
+      CheckDirectoryExistence(path);
+    }
+    catch(const std::filesystem::filesystem_error& err) {
+      return ResultType::PERMISSION_DENIED;
+    }
     if(!std::filesystem::is_directory(path)) return ResultType::NOT_DIRECTORY;
     if(!CheckPermissions(path)) return ResultType::PERMISSION_DENIED;
 

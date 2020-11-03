@@ -4,7 +4,7 @@
 
 #include "GRPCServer.h"
 
-GRPCServer::GRPCServer(std::unique_ptr<DirectoryStorage> storage) :
+GRPCServer::GRPCServer(std::unique_ptr<StorageInterface> storage) :
         storage_(std::move(storage)) {  }
 
 ::grpc::Status GRPCServer::SaveDirectory(::grpc::ServerContext *context,
