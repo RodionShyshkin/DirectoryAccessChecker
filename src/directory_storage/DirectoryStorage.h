@@ -6,14 +6,12 @@
 #define DIRECTORYACCESSCHECKER_SRC_DIRECTORYSTORAGE_H_
 
 #include <set>
-#include <filesystem>
+#include <directory_storage/StorageInterface.h>
 
-class DirectoryStorage {
+class DirectoryStorage : public StorageInterface {
  public:
-
- public:
-  bool AddDir(const std::filesystem::path& path);
-  bool RemoveDir(const std::filesystem::path& path);
+  bool AddDir(const std::filesystem::path& path) override;
+  bool RemoveDir(const std::filesystem::path& path) override;
 
  private:
   std::set<std::filesystem::path> dirs_;
